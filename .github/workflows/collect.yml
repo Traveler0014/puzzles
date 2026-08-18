@@ -47,4 +47,5 @@ jobs:
           git push origin "$BRANCH"
           gh pr create --base main --head "$BRANCH" \
             --title "chore(prompts): 自动提取候选题" \
-            --body "自动提取的候选题目（status: draft）。请按写题契约审核：通过则移入 prompts/ 改 status 为 published，打回则删除。"
+            --body "自动提取的候选题目（status: draft）。请按写题契约审核：通过则移入 prompts/ 改 status 为 published，打回则删除。" \
+            || echo "::warning::候选已推送到分支 ${BRANCH}，但自动开 PR 失败——请在仓库 Settings → Actions → General 勾选 'Allow GitHub Actions to create and approve pull requests'，或手动从该分支开 PR。"

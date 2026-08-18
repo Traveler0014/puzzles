@@ -30,7 +30,15 @@ async function llm(messages) {
     },
     body: JSON.stringify(body),
   });
-  if (!res.ok) throw new Error(`LLM HTTP ${res.status}: ${(await res.text()).slice(0, 200)}`);
+  if (!res.ok) {
+    const detail = (await res.text()).slice(0, 200);
+    if (res.status === 401) {
+      throw new Error(
+        `LLM 401 鉴权失败：请检查 OPENAI_API_KEY 与 OPENAI_BASE_URL（当前 ${BASE_URL}）是否指向同一家服务商。${detail}`,
+      );
+    }
+    throw new Error(`LLM HTTP ${res.status}: ${detail}`);
+  }
   const data = await res.json();
   const content = data.choices?.[0]?.message?.content;
   if (!content) throw new Error('LLM 返回空内容');
