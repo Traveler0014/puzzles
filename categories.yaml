@@ -1,6 +1,14 @@
 - id: cosmos
   label: 天文宇宙
+- id: physics
+  label: 物理
 - id: thermal
   label: 冷与热
 - id: motion
   label: 力与运动
+- id: math
+  label: 数学
+- id: biology
+  label: 生物
+- id: tech
+  label: 科技与算法

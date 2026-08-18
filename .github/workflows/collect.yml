@@ -1,0 +1,50 @@
+name: auto-collect
+
+on:
+  schedule:
+    # 每天 03:30 UTC（≈ 北京时间 11:30，拉取前一天的新内容）
+    - cron: '30 3 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  collect:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - run: npm install
+
+      - name: 采集素材
+        run: node collectors/collect.mjs
+
+      - name: LLM 提取候选题
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          OPENAI_BASE_URL: ${{ vars.OPENAI_BASE_URL || 'https://api.openai.com/v1' }}
+          LLM_MODEL: ${{ vars.LLM_MODEL || 'gpt-4o-mini' }}
+        run: node extract/extract.mjs
+
+      - name: 提交候选并开 PR（若有新题）
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          git config user.name "auto-collect[bot]"
+          git config user.email "auto-collect[bot]@users.noreply.github.com"
+          git add pending material/processed.json
+          if git diff --cached --quiet; then
+            echo "无新候选，跳过 PR"
+            exit 0
+          fi
+          BRANCH="auto/collect-$(date +%Y%m%d-%H%M%S)"
+          git checkout -b "$BRANCH"
+          git commit -m "chore(prompts): 自动提取候选题"
+          git push origin "$BRANCH"
+          gh pr create --base main --head "$BRANCH" \
+            --title "chore(prompts): 自动提取候选题" \
+            --body "自动提取的候选题目（status: draft）。请按写题契约审核：通过则移入 prompts/ 改 status 为 published，打回则删除。"

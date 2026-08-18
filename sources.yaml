@@ -1,0 +1,36 @@
+# 自动提取数据源配置。
+# maxNewMaterials: 每次运行最多处理的新素材数（成本控制）。
+maxNewMaterials: 10
+
+sources:
+  - id: quantamagazine
+    type: rss
+    url: https://www.quantamagazine.org/feed/
+    categoryHint: physics
+    maxItems: 20
+
+  - id: physorg
+    type: rss
+    url: https://phys.org/rss-feed/
+    categoryHint: cosmos
+    maxItems: 20
+
+  - id: sciencedaily
+    type: rss
+    url: https://www.sciencedaily.com/rss/top/science.xml
+    categoryHint: biology
+    maxItems: 20
+
+  - id: feynman
+    type: feynman
+    baseUrl: https://www.feynmanlectures.caltech.edu
+    # 经典章节（辐射阻尼/折射 I_32、棘轮 I_46、微分方程 II_02 等）
+    chapters: ["I_32", "I_46", "II_02"]
+    categoryHint: physics
+
+  - id: threblueonebrown
+    type: youtube
+    # 3Blue1Brown 频道 ID；用频道 RSS 拿最新视频（无需 API key）
+    channelId: UCYO_jab_esuFRV4b17AJtAw
+    maxVideos: 5
+    categoryHint: math
