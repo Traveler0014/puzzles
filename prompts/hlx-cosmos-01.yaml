@@ -1,0 +1,16 @@
+id: hlx-cosmos-01
+category: cosmos
+difficulty: 2
+source: 潮汐锁定；Murray & Dermott《Solar System Dynamics》
+sourceUrl: https://en.wikipedia.org/wiki/Tidal_locking
+author: 社区示例
+status: published
+question: |
+  抬头看月亮，永远都是同一面——环形山的位置从来不变。直觉上，月亮如果像地球一样自转，
+  我们早晚该看到它的背面。那月亮到底自转不自转？如果转，为什么我们永远只看到一面？
+answer: |
+  月亮在自转，而且自转周期恰好等于绕地球的公转周期（约 27.3 天），所以永远一面朝地球，
+  这叫「潮汐锁定」。机制：地球引力在月球上造成潮汐隆起，隆起被地球引力持续「拉慢」，
+  直到自转与公转同步——这是引力耗散的结果，不是巧合。太阳系里很多卫星（木卫一、木卫二等）
+  都被锁定了，很多系外行星也被锁成一面永昼、一面永夜。
+  关键：先证否「月亮不自转」，再说清「自转周期 = 公转周期」这一层。

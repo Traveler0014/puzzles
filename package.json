@@ -1,0 +1,14 @@
+{
+  "name": "healthy-life-prompts",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "validate": "node scripts/build.mjs && node scripts/validate.mjs"
+  },
+  "devDependencies": {
+    "ajv": "^8.17.1",
+    "js-yaml": "^4.1.0"
+  }
+}

@@ -1,0 +1,15 @@
+id: hlx-thermal-01
+category: thermal
+difficulty: 1
+source: 相变与饱和蒸气压（Clausius–Clapeyron 关系）
+sourceUrl: https://en.wikipedia.org/wiki/Clausius%E2%80%93Clapeyron_relation
+author: 社区示例
+status: published
+question: |
+  高压锅为什么能更快把肉炖烂？锅盖扣紧、里面压力大，直觉是「压力大所以温度高」——
+  但为什么压力大温度就高？再想一步：在高海拔的山上煮鸡蛋，为什么反而更难熟？
+answer: |
+  水的沸点随压强升高而升高。高压锅内压强高于大气压，水要到 110° 以上才沸腾，
+  更高温度下肉熟得更快。反过来，高海拔气压低，水在 80-90° 就沸腾，之后温度不再上升，
+  鸡蛋就难煮熟。关键不是「压力本身」，而是「沸点随压强变化」：沸腾的水温被锁死在沸点，
+  锅里的最高温度由压强决定。先证否「压力直接让温度升高」，再落到沸点这一层。
