@@ -121,3 +121,15 @@ puzzles/
 - `extract/prompt.md` + `extract/extract.mjs`
 - `.github/workflows/collect.yml`
 - `pending/`（空目录 + `.gitkeep`）
+
+## 9. 接入模型（DeepSeek 等 OpenAI 兼容接口）
+
+`extract.mjs` 走 OpenAI 兼容的 `POST {BASE_URL}/chat/completions`，接任意兼容服务只需三个配置：
+
+| 配置 | 说明 | DeepSeek 示例 |
+|---|---|---|
+| `OPENAI_BASE_URL` | 接口地址，不带 `/v1` 即可（代码会拼 `/chat/completions`） | `https://api.deepseek.com` |
+| `LLM_MODEL` | 模型名 | `deepseek-chat` |
+| `LLM_TEMPERATURE` | 可选，默认 `0.7`；设为空则不传（`deepseek-reasoner` 不支持该参数） | 留空即可 |
+
+> 注意：`deepseek-reasoner` 不支持 `temperature` 等采样参数，用它时把 `LLM_TEMPERATURE` 设为空；出题推荐直接用 `deepseek-chat`。

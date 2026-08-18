@@ -10,6 +10,8 @@ const promptsDir = resolve(root, 'prompts');
 const API_KEY = process.env.OPENAI_API_KEY ?? '';
 const BASE_URL = (process.env.OPENAI_BASE_URL ?? 'https://api.openai.com/v1').replace(/\/+$/, '');
 const MODEL = process.env.LLM_MODEL ?? 'gpt-4o-mini';
+// temperature 可配：默认 0.7；设为空（LLM_TEMPERATURE=）则不传（适配 deepseek-reasoner 等不支持 temperature 的模型）
+const LLM_TEMPERATURE = process.env.LLM_TEMPERATURE ?? '0.7';
 
 const TEMPLATE = readFileSync(resolve(import.meta.dirname, 'prompt.md'), 'utf8');
 
@@ -18,13 +20,15 @@ function loadYaml(p) {
 }
 
 async function llm(messages) {
+  const body = { model: MODEL, messages };
+  if (LLM_TEMPERATURE !== '') body.temperature = Number(LLM_TEMPERATURE);
   const res = await fetch(`${BASE_URL}/chat/completions`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
       Authorization: `Bearer ${API_KEY}`,
     },
-    body: JSON.stringify({ model: MODEL, messages, temperature: 0.7 }),
+    body: JSON.stringify(body),
   });
   if (!res.ok) throw new Error(`LLM HTTP ${res.status}: ${(await res.text()).slice(0, 200)}`);
   const data = await res.json();
