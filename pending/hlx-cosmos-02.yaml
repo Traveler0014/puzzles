@@ -1,0 +1,11 @@
+id: hlx-cosmos-02
+category: cosmos
+difficulty: 2
+source: "phys.org：Why Korean 'aegyo' speech sounds cute: Adults raise vocal resonances to sound younger and smaller"
+sourceUrl: "https://phys.org/news/2026-08-korean-aegyo-speech-cute-adults.html"
+author: auto
+status: draft
+question: |
+  恋爱中有人爱故意奶声奶气地说话（韩语叫 aegyo），听上去又小又可爱。直觉会说：因为音调变高了。可如果只是音高的事，为什么用变声器把音调拉高，能听出像异性、却很难像小孩？让成年人的声音'变小变幼'的，到底是声音里的哪种线索？
+answer: |
+  直觉的'音调高'只答对了一半。音调（基频）确实会升高，但真正让大脑判断'小'的，是共振峰——气流经过喉到唇这段'管道'时，某些频率会被特别加强，这些频率的分布就像管道长度的指纹。小孩管道短，共振峰整体偏高、彼此间距大；成年人装可爱时会不自觉地抬喉头、收圆嘴唇、舌头前移，等于临时把管道缩短，于是共振峰升高、间距拉开。听者大脑把这组信号解码为'管道小→身体小→年幼'，于是觉得可爱。动物界也有同一套'体型编码'：示威的动物会压低共振峰，让自己显得更大。所以萝莉音与霸总音是同一把尺子的两端——真正改的是共鸣，不只是音高。这也能解释为什么单纯拉高音调的变声器能变'性'、却难变'幼'。

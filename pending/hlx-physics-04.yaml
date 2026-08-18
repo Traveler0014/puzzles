@@ -1,0 +1,11 @@
+id: hlx-physics-04
+category: physics
+difficulty: 2
+source: "https://phys.org/news/2026-08-loud-simulation-reveals-physical-mechanism.html"
+sourceUrl: "https://phys.org/news/2026-08-loud-simulation-reveals-physical-mechanism.html"
+author: auto
+status: draft
+question: |
+  夜深人静，室友鼾声如雷。直觉告诉我们，鼾声是气流通过狭窄气管时摩擦或哨声产生的。但模拟研究发现，真相并非如此。请问：打鼾声的主要物理机制是什么？为什么它一旦响起就往往持续不断，而不是像吹口哨那样需要一直对准角度？
+answer: |
+  很多人以为鼾声像哨声一样，是空气高速通过狭窄通道时摩擦或湍流产生的。但模拟和实验表明，打鼾的根源是一种流体-结构耦合的自激振动：睡眠时软腭、悬雍垂和咽壁肌肉松弛，呼吸道局部变窄，气流加速，压强下降（伯努利效应），对软组织的吸力随位置和速度变化。当气流速度超过某个临界值，软组织会发生像旗子在风中飘动那样的颤振（flutter），周期性开合、拍击，从而产生洪亮而有节奏的鼾声。这个过程不需要持续的外力精确对准——软组织和气流互相反馈，振动一旦建立就自我维持，直到睡眠姿态或气流速度改变。这也解释了为什么侧卧或抬高头部常能减轻鼾声：改变了气道的几何形状，使振动失稳条件不再满足。
