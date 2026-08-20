@@ -1,0 +1,11 @@
+id: hlx-physics-01
+category: physics
+difficulty: 2
+source: "Quanta Magazine: Building a Quantum Computer, One Fragile Qubit at a Time (quantaagazine.org)"
+sourceUrl: "https://www.quantamagazine.org/building-a-quantum-computer-one-fragile-qubit-at-a-time-20260819/"
+author: auto
+status: draft
+question: |
+  普通电脑芯片发热时要拼命散热，可量子计算机反倒要冷却到比太空还冷的极低温。直觉上会说：芯片怕烧坏。但量子比特的“脆弱”并不是怕烧坏——那它为什么必须待在这么冷的地方？最直观的“怕热”解释错在哪？
+answer: |
+  最直观的解释是“低温防止硬件烧坏”，但这只适用于普通芯片。量子比特的脆弱在于它是一团“叠加态”——同时处于多个状态的量子组合。这种状态极其敏感，任何来自环境的干扰（热量、电磁波、轻微碰撞）都会让叠加态瞬间“坍缩”成一个确定值，信息就此丢失。这个过程叫退相干。极低温的作用是让原子几乎停止热运动，从而最大限度减少环境对量子比特的“窥探”。换句话说，量子比特不是怕被烧坏，而是怕“被看见”：环境一旦把它的状态记录下来，计算就结束了。所以哪怕温度很低，干扰也不可能完全消除，科学家还需要用纠错码来保护这些脆弱的量子态——这正是量子计算机至今难以造大的核心障碍。
