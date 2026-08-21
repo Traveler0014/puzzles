@@ -1,0 +1,11 @@
+id: hlx-physics-01
+category: physics
+difficulty: 2
+source: "https://www.quantamagazine.org/are-we-thinking-correctly-about-ai-intelligence-20260820/"
+sourceUrl: "https://www.quantamagazine.org/are-we-thinking-correctly-about-ai-intelligence-20260820/"
+author: auto
+status: draft
+question: |
+  AI能聊天、写代码、通过律师考试。我们习惯说它已经会“思考”，只是和人类不一样。物理学家听到这句话可能会皱眉：因为物理学从来不直接测量“温度”，而是通过可测的现象去定义它。那么，想判断AI到底会不会思考，最该先追问什么？
+answer: |
+  最直觉的回答是：能答对问题，就说明会思考，最多是思考方式不同。但Melanie Mitchell提醒，这个说法把“行为”和“能力”混为一谈了。大语言模型学到的，是人类文本里词语之间的统计关系；它生成的内容看似合理，实际上是概率性的模式补全，而不是从意图、世界模型或身体经验中推导出来的。就像温度计没有“感到热”却能报告温度，AI也没有人类那种理解，却能输出像理解的句子。所以“只是思考方式不同”这句话听起来宽容，却轻易绕过了一个难题：人类思考与感知、目标、环境和社会互动长在一起；没有这些根基的“思考”到底意味着什么，还没有共识。想测量机器智能，不能只看答题正确率，而要设计实验区分“真正推理”和“表面匹配”。这正是物理学的态度：在找到可靠的测量方法之前，一个概念并不会因为用得顺手就变得清晰。
