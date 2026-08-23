@@ -1,0 +1,11 @@
+id: hlx-physics-01
+category: physics
+difficulty: 2
+source: "Quanta Magazine: Are We Thinking Correctly About AI Intelligence? (https://www.quantamagazine.org/are-we-thinking-correctly-about-ai-intelligence-20260820/)"
+sourceUrl: "https://www.quantamagazine.org/are-we-thinking-correctly-about-ai-intelligence-20260820/"
+author: auto
+status: draft
+question: |
+  如果让 AI 做一道初中物理题，它往往能写出标准答案，比很多同学还快；可万一把题目里的说法换一下，它可能立刻出错。一个“会做物理”的机器，为什么这么怕换说法？它到底是在用物理规律思考，还是在用文字套路蒙答案？
+answer: |
+  它在用文字套路蒙答案，而不是像人一样用物理规律思考。当前大语言模型的核心任务，是看着上文预测下一个最可能出现的词。它没有见过铁球、斜坡和摩擦力，也没有“力”的体验；它学会的只是海量文本里“质量、加速度、F=ma”这些词总在一起出现的统计关系。所以它能写出标准的解题步骤，却会在同义改写面前突然翻车——因为关键词一变，它熟悉的概率分布就变了，输出随之崩塌。Melanie Mitchell 在 Quanta 的访谈里指出，AI 并不像人类那样“思考”和“推理”，它缺少对世界的因果模型。这个例子正好说明：会写标准答案，不等于理解物理；就像复述“水往低处流”不代表懂得引力。因此衡量机器认知，不能只看它在人类考题上得几分，而要看它在哪些地方突然断掉。

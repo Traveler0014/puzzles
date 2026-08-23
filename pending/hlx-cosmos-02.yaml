@@ -1,0 +1,11 @@
+id: hlx-cosmos-02
+category: cosmos
+difficulty: 2
+source: "Phys.org: The dynamic duo: 'Weaving' hierarchical DNA materials with two classes of biomolecular nanomachines (https://phys.org/news/2026-08-dynamic-duo-hierarchical-dna-materials.html)"
+sourceUrl: "https://phys.org/news/2026-08-dynamic-duo-hierarchical-dna-materials.html"
+author: auto
+status: draft
+question: |
+  细胞里的酶和分子马达像微型织布机，靠化学能就能把DNA链编成高度有序的材料。有人问：它们不停地干活，为什么没把细胞越搞越乱？最直接的回答是“因为它们在做功、消耗能量”。这个回答够不够？如果不够，真正的关键差别在哪里？
+answer: |
+  不够。分子机器确实在做功，但这只是表面。热力学第二定律管的是总熵：孤立系统里总熵不会自发减少；而细胞不是孤立系统。分子马达靠ATP供能，把化学能变成机械功，同时每一步都会释放废热、让产物扩散，这些无序最终排到环境中，使环境熵增。局部的DNA材料变得有序，是用环境更大的熵增换来的——好比冰箱让里面变冷、把热排到厨房。若切断能量来源，热运动立刻把有序结构拆散。所以关键不是“做功”本身战胜了熵，而是生命作为远离平衡的开放系统，靠耗散能量维持局域有序；总熵仍在增加，第二定律从未被违反。
