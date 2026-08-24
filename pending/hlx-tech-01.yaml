@@ -1,0 +1,11 @@
+id: hlx-tech-01
+category: tech
+difficulty: 2
+source: "Quanta Magazine, Are We Thinking Correctly About AI Intelligence? (Melanie Mitchell)"
+sourceUrl: "https://www.quantamagazine.org/are-we-thinking-correctly-about-ai-intelligence-20260820/"
+author: auto
+status: draft
+question: |
+  你手机里的语音助手能秒答“1+1等于几”，还能和你聊天。它真的像人一样在“思考”吗？请给出你的判断和理由。
+answer: |
+  直觉上很多人会答“是”，因为它答对了。但认知科学家梅拉妮·米切尔指出，AI并不像人类那样思考和推理。它只是在海量数据中识别出语言模式，生成看似合理的回应，并不理解“1”是什么、加法是什么。它可以模仿人类的话，却没有意识、意图或对世界的真实理解。这种把语言流畅性误当成智能的现象，被称为“智能的错觉”。所以，AI的“思考”与我们人类的思考有本质区别——它更像一面会说话的镜子，而不是一个会理解的头脑。要真正衡量机器认知，不能只看它答对多少，还需要设计更细致、能暴露它是否真正理解的测试。
