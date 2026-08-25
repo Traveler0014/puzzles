@@ -1,0 +1,11 @@
+id: hlx-tech-01
+category: tech
+difficulty: 2
+source: "https://www.quantamagazine.org/are-we-thinking-correctly-about-ai-intelligence-20260820/"
+sourceUrl: "https://www.quantamagazine.org/are-we-thinking-correctly-about-ai-intelligence-20260820/"
+author: auto
+status: draft
+question: |
+  AlphaGo在围棋中下出人类想不到的“神之一手”，赢了世界冠军。很多人说：“它已经比人更会思考了。”你能从“思考”这个词本身入手，说说这种说法为什么不完全正确吗？我们该用什么标准去评价AI的能力？
+answer: |
+  “赢棋”不等于“会思考”。AlphaGo的决策来自深度神经网络在海量对局中做的统计学习，它计算的是下一步落子后获胜概率的近似值，而不是像人类那样理解棋理、目的或胜负的意义。计算机科学家梅兰妮·米切尔指出，当前AI并不像人类那样思考和推理，它擅长的是模式识别与优化，缺乏对因果、常识和真实世界的理解。因此，“能赢”只能说明它在特定任务上的表现超过了人类，并不能推出它拥有更高级的通用智能。要准确评估AI，应该拆解具体能力（如感知、记忆、推理、迁移等）分别测试，而不是笼统地用“会不会思考”来概括。这个结论提醒我们：不要被强大的任务表现误导，误把统计模式当作真正的理解。
