@@ -14,6 +14,8 @@ const MODEL = process.env.LLM_MODEL ?? 'gpt-4o-mini';
 const LLM_TEMPERATURE = process.env.LLM_TEMPERATURE ?? '0.7';
 
 const TEMPLATE = readFileSync(resolve(import.meta.dirname, 'prompt.md'), 'utf8');
+// classic-variant 模式：以经典谜题原型为种子，产出「原型 → 变体 → 元问题」递进链
+const VARIANT_TEMPLATE = readFileSync(resolve(import.meta.dirname, 'variant-prompt.md'), 'utf8');
 
 function loadYaml(p) {
   return yaml.load(readFileSync(p, 'utf8'));
@@ -94,7 +96,7 @@ function toYaml(p) {
     `difficulty: ${p.difficulty}`,
     `source: "${esc(p.source)}"`,
     `sourceUrl: "${esc(p.sourceUrl)}"`,
-    `author: ${p.author}`,
+    `author: "${esc(p.author)}"`,
     `status: draft`,
     `question: |`,
     block(p.question),
@@ -134,9 +136,13 @@ async function main() {
   let skipped = 0;
   for (const m of materials) {
     try {
-      const sys = TEMPLATE.replace('{{title}}', m.title ?? '')
-        .replace('{{url}}', m.url ?? '')
-        .replace('{{text}}', String(m.text ?? '').slice(0, 2000));
+      const isVariant = m.mode === 'variant';
+      const tpl = isVariant ? VARIANT_TEMPLATE : TEMPLATE;
+      const sys = tpl
+        .replace('{{title}}', m.title ?? '')
+        .replace('{{source}}', m.seedSource ?? m.title ?? '')
+        .replace('{{url}}', m.seedSourceUrl ?? m.url ?? '')
+        .replace('{{text}}', String(m.text ?? '').slice(0, 4000));
       const content = await llm([
         { role: 'system', content: sys },
         {
@@ -149,24 +155,27 @@ async function main() {
         skipped += 1;
         console.log(`[extract] skip ${m.url} — ${out.reason ?? ''}`);
       } else {
-        const p = out.prompt ?? {};
-        const category = categories.includes(p.category) ? p.category : m.categoryHint ?? 'physics';
-        const rec = {
-          id: nextId(category, ids),
-          category,
-          difficulty: [1, 2, 3].includes(p.difficulty) ? p.difficulty : 2,
-          source: String(p.source ?? m.title ?? '').slice(0, 300),
-          sourceUrl: m.url,
-          author: 'auto',
-          question: String(p.question ?? ''),
-          answer: String(p.answer ?? ''),
-        };
-        if (!rec.question || !rec.answer) {
-          console.log(`[extract] skip ${m.url} — 题目/答案为空`);
-          skipped += 1;
-        } else {
-          writeFileSync(resolve(pendingDir, `${rec.id}.yaml`), toYaml(rec));
-          made += 1;
+        // 默认模式：{prompt}；variant 模式：{prompts: [...]}
+        const prompts = Array.isArray(out.prompts) && out.prompts.length > 0 ? out.prompts : [out.prompt ?? {}];
+        for (const p of prompts) {
+          const category = categories.includes(p.category) ? p.category : m.categoryHint ?? 'physics';
+          const rec = {
+            id: nextId(category, ids),
+            category,
+            difficulty: [1, 2, 3].includes(p.difficulty) ? p.difficulty : 2,
+            source: String(p.source ?? m.seedSource ?? m.title ?? '').slice(0, 300),
+            sourceUrl: String(p.sourceUrl ?? m.seedSourceUrl ?? m.url ?? '').slice(0, 1000),
+            author: m.author ? String(m.author).slice(0, 100) : 'auto',
+            question: String(p.question ?? ''),
+            answer: String(p.answer ?? ''),
+          };
+          if (!rec.question || !rec.answer) {
+            console.log(`[extract] skip ${m.url} — 题目/答案为空`);
+            skipped += 1;
+          } else {
+            writeFileSync(resolve(pendingDir, `${rec.id}.yaml`), toYaml(rec));
+            made += 1;
+          }
         }
       }
     } catch (err) {

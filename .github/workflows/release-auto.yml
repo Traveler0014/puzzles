@@ -1,0 +1,75 @@
+name: release-auto
+
+# prompts/ 或分类有变更时：自动 bump minor 版本 + 打 tag，
+# 由 release.yml（tag 触发）构建并发布 bundle.json。
+# 破坏性修订（major）仍手动打 v* tag 覆盖。
+
+on:
+  push:
+    branches: [main]
+    paths: ['prompts/**', 'categories.yaml']
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          fetch-tags: true
+
+      - name: 版本无实质变化则跳过
+        id: check
+        run: |
+          # 上一个 tag 到 HEAD 之间 prompts/ 无 diff 则说明只是发版提交或杂项，跳过
+          LAST=$(git tag -l 'v*' | sort -V | tail -1)
+          BASE="${LAST:-HEAD~1}"
+          if git diff --quiet "$BASE" HEAD -- prompts/ categories.yaml; then
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - uses: actions/setup-node@v4
+        if: steps.check.outputs.changed == 'true'
+        with: { node-version: 20 }
+
+      - run: npm install
+        if: steps.check.outputs.changed == 'true'
+
+      - run: npm run validate
+        if: steps.check.outputs.changed == 'true'
+
+      - name: bump minor 版本并写入 bundle.yaml
+        if: steps.check.outputs.changed == 'true'
+        id: bump
+        run: |
+          LAST=$(git tag -l 'v*' | sort -V | tail -1)
+          if [ -z "$LAST" ]; then BASE="0.1.0"; else BASE="${LAST#v}"; fi
+          MAJOR=$(echo "$BASE" | cut -d. -f1)
+          MINOR=$(echo "$BASE" | cut -d. -f2)
+          NEXT="$MAJOR.$((MINOR+1)).0"
+          echo "version=$NEXT" >> "$GITHUB_OUTPUT"
+          node -e "
+            const fs = require('fs');
+            const yaml = require('js-yaml');
+            const b = yaml.load(fs.readFileSync('bundle.yaml', 'utf8'));
+            b.version = process.argv[1];
+            b.updatedAt = new Date().toISOString();
+            fs.writeFileSync('bundle.yaml', yaml.dump(b));
+          " "$NEXT"
+
+      - name: 提交版本号并打 tag
+        if: steps.check.outputs.changed == 'true'
+        run: |
+          git config user.name "release-bot"
+          git config user.email "release-bot@users.noreply.github.com"
+          git add bundle.yaml
+          git commit -m "chore(release): v${{ steps.bump.outputs.version }} [skip ci]"
+          git push origin main
+          git tag "v${{ steps.bump.outputs.version }}"
+          git push origin "v${{ steps.bump.outputs.version }}"
+          # tag 推送触发 release.yml：校验 + 发布 GitHub Release（附 dist/bundle.json）

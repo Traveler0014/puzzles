@@ -3,6 +3,14 @@
 maxNewMaterials: 10
 
 sources:
+  - id: puzzling-se
+    type: stackexchange
+    # Puzzling StackExchange：高分解谜题 + 已采纳/最高票解答（CC BY-SA，提取时改编+署名）
+    # 不传 tagged：该站没有通用 puzzle 元标签，全站拉取后按票数/已采纳过滤
+    site: puzzling
+    minScore: 10
+    maxItems: 12
+    categoryHint: logic
   - id: quantamagazine
     type: rss
     url: https://www.quantamagazine.org/feed/
@@ -34,3 +42,4 @@ sources:
     channelId: UCYO_jab_esuFRV4b17AJtAw
     maxVideos: 5
     categoryHint: math
+

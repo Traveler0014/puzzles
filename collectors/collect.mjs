@@ -5,6 +5,8 @@ import yaml from 'js-yaml';
 import { collectRss } from './rss.mjs';
 import { collectFeynman } from './feynman.mjs';
 import { collectYoutube } from './youtube.mjs';
+import { collectStackExchange } from './stackexchange.mjs';
+import { collectRaw } from './raw.mjs';
 
 const root = resolve(import.meta.dirname, '..');
 const materialDir = resolve(root, 'material');
@@ -21,12 +23,21 @@ async function main() {
     : new Set();
 
   const cards = [];
+  // 经典谜题种子（raw/*.md）优先：人工策展的素材不应被 maxNewMaterials 配额挤掉
+  try {
+    const seeds = await collectRaw();
+    cards.push(...seeds);
+    console.log(`[collect] raw-seeds: ${seeds.length} items`);
+  } catch (err) {
+    console.error('[collect] raw-seeds failed:', err instanceof Error ? err.message : String(err));
+  }
   for (const src of conf.sources) {
     try {
       let items = [];
       if (src.type === 'rss') items = await collectRss(src);
       else if (src.type === 'feynman') items = await collectFeynman(src);
       else if (src.type === 'youtube') items = await collectYoutube(src);
+      else if (src.type === 'stackexchange') items = await collectStackExchange(src);
       items.forEach((it) => {
         it.id = materialId(it.url);
         it.channel = src.id;

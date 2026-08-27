@@ -20,8 +20,10 @@
 | arXiv（可选） | RSS | `rss` | 太专业，默认关，人工开启 |
 | 费曼物理学讲义 | 公开网页 | `feynman` | `physics` |
 | 3Blue1Brown | YouTube 字幕 | `youtube` | `math` |
+| Puzzling StackExchange | SE API（高分解谜题+已采纳解答） | `stackexchange` | `logic` |
+| 经典谜题种子（人工选定） | `raw/*.md` | `raw`（classic-variant 模式） | 按种子 |
 
-数据源集中配置在 `sources.yaml`，新增渠道只需加一条，不改代码。
+数据源集中配置在 `sources.yaml`，新增渠道只需加一条，不改代码。`raw/*.md` 种子不需要配置，放进目录即被采集。
 
 ## 3. 流水线总览
 
@@ -86,20 +88,21 @@ puzzles/
 }
 ```
 
-### 5.2 提取 prompt（`extract/prompt.md`）
+### 5.2 提取 prompt（`extract/prompt.md` / `extract/variant-prompt.md`）
 
-要点（全文见文件）：
+两种模式，按素材 `mode` 字段选择：
 
-- 系统角色 = 睡前思考题写手，遵守写题契约（入口低/出口深/证否直觉/source 必填）。
-- 明确「不适合出题 → skip」的判定（需大量背景 / 纯新闻无原理 / 琐碎无层次 / 来源不明）。
-- 输出**严格 JSON**：`{"skip":false,"prompt":{...}}` 或 `{"skip":true,"reason":"..."}`。
-- `id`、`sourceUrl` 由脚本回填（不信任 LLM 生成 id，避免冲突）；LLM 只产 `category/difficulty/source/question/answer`。
+- **默认（科普改写）**：从科普素材提炼一道「现象解释型」题。要点（全文见文件）：系统角色 = 睡前思考题写手，遵守写题契约；明确「不适合出题 → skip」；输出严格 JSON `{"skip":false,"prompt":{...}}`。
+- **classic-variant（经典变体）**：`raw/*.md` 种子自动带 `mode: variant`。以经典谜题原型为种子，产出「原型 → 变体 → 元问题」递进链（1～3 道），面向理工科用户的**推理构造型**题型；额外强调「闭眼可推进」（工作记忆负载小，不需纸笔）。输出 `{"skip":false,"prompts":[...]}`（数组）。
+
+通用约束：`id`、`sourceUrl` 由脚本回填（不信任 LLM 生成 id）；LLM 只产 `category/difficulty/source/question/answer`。
 
 ### 5.3 输出落地（`extract/extract.mjs`）
 
-- 每个「非 skip」结果生成 `pending/hlx-<slug>.yaml`，`status: draft`。
+- 每个「非 skip」结果生成 `pending/hlx-<slug>.yaml`，`status: draft`（variant 模式一个种子可产多题）。
 - `id` 由脚本分配：`hlx-<category>-<counter>`，扫描 `prompts/` + `pending/` 避免重复。
-- 把已处理素材的 `sourceUrl` 记入 `material/processed.json`，下次跳过。
+- 署名：素材带 `author`（如 `SE:用户名`）则透传，否则 `auto`。
+- 把已处理素材的 `sourceUrl`（种子为 `raw://<name>` 伪 URL）记入 `material/processed.json`，下次跳过。
 
 ## 6. 去重策略（三档，从简到严）
 

@@ -8,6 +8,8 @@
   label: 力与运动
 - id: math
   label: 数学
+- id: logic
+  label: 逻辑构造
 - id: biology
   label: 生物
 - id: tech

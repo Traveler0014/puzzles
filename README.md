@@ -19,10 +19,14 @@
 bundle.yaml            # 包元信息（id/name/version/status）
 categories.yaml        # 分类（id → label）
 prompts/*.yaml         # 单题一个文件（status: draft | published）
+raw/*.md               # 经典谜题种子（classic-variant 提取模式的输入）
+sources.yaml           # 自动采集数据源（RSS / 费曼讲义 / 3B1B / Puzzling SE）
+collectors/            # 采集器（rss / feynman / youtube / stackexchange / raw）
+extract/               # LLM 提取（prompt.md 默认模板 / variant-prompt.md 经典变体模板）
 scripts/build.mjs      # 聚合 → dist/bundle.json
 scripts/validate.mjs   # 契约 + 跨字段校验
 bundle.schema.json     # 契约 JSON Schema（与主仓库同步）
-.github/workflows/     # PR 校验 + 打 tag 发布 release
+.github/workflows/     # PR 校验 / 自动发版 / 定时采集
 ```
 
 ## 投稿流程
@@ -30,8 +34,15 @@ bundle.schema.json     # 契约 JSON Schema（与主仓库同步）
 1. 在 `prompts/` 下新增一个 YAML，`status: draft`，开 PR。
 2. CI 自动跑契约校验；不通过会评论反馈。
 3. 维护者按「写题契约」审核，通过后把 `status` 改为 `published` 合并。
-4. 维护者 bump `bundle.yaml` 的 `version`，打 `vX.Y.Z` tag → 自动发布 release。
-5. 主仓库次日自动拉取。
+4. 合并到 main 且 `prompts/` 有变更时，CI **自动 bump minor 版本并发布 release**（`release-auto.yml`）；
+   破坏性修订（major）仍手动打 `v*` tag。
+5. 主仓库次日自动拉取（或 admin 后台添加订阅源「立即同步」）。
+
+## 经典谜题种子（raw/）
+
+面向理工科用户的**推理构造型**题型（称重编码、星期几心算、骑士与骗子等经典谜题族）：
+把人工选定的经典原型写成 `raw/*.md` 种子（title / source / 正文），LLM 按 classic-variant
+模式产出「原型 → 变体 → 元问题」递进链候选（一个种子最多 3 道），人工审核后上架。
 
 ## 本地构建与校验
 
