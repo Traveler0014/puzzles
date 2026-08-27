@@ -28,7 +28,7 @@
 ## 3. 流水线总览
 
 ```
-GitHub Actions (每天 03:30 UTC / 手动 workflow_dispatch)
+GitHub Actions (每周一 03:30 UTC / 手动 workflow_dispatch)
         │
         ▼
 ① collect（采集）──► 各 collector 抓 RSS/网页/字幕 ──► 归一化为「素材卡片」写入 material/
@@ -103,6 +103,8 @@ puzzles/
 - `id` 由脚本分配：`hlx-<category>-<counter>`，扫描 `prompts/` + `pending/` 避免重复。
 - 署名：素材带 `author`（如 `SE:用户名`）则透传，否则 `auto`。
 - 把已处理素材的 `sourceUrl`（种子为 `raw://<name>` 伪 URL）记入 `material/processed.json`，下次跳过。
+  注意：`processed.json` 由 workflow **直接提交到 main**（不随 PR 分支走）—— 否则 PR 不合并，
+  去重状态就永远到不了 main，每次运行都会重复处理同样的素材。
 
 ## 6. 去重策略（三档，从简到严）
 

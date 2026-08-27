@@ -2,8 +2,10 @@ name: auto-collect
 
 on:
   schedule:
-    # 每天 03:30 UTC（≈ 北京时间 11:30，拉取前一天的新内容）
-    - cron: '30 3 * * *'
+    # 每周一 03:30 UTC（≈ 北京时间周一 11:30）。
+    # 2026-08: 由每日降为每周 —— 审核吞吐跟不上时每日采集只会堆积 PR
+    # 并重复烧 LLM token；需要临时补采可用 workflow_dispatch 手动触发。
+    - cron: '30 3 * * 1'
   workflow_dispatch:
 
 permissions:
@@ -30,13 +32,33 @@ jobs:
           LLM_MODEL: ${{ vars.LLM_MODEL || 'gpt-4o-mini' }}
         run: node extract/extract.mjs
 
-      - name: 提交候选并开 PR（若有新题）
+      - name: 持久化去重状态（processed.json 直推 main）
+        # 此前 processed.json 只提交到 PR 分支，PR 不合并 main 就永远没有去重状态
+        # → 每次运行都从头重新处理同样素材、重复调 LLM、重复生成同一道题。
+        # 改为直推 main（GITHUB_TOKEN 推送不会触发其它 workflow，且不往 PR 里塞状态文件）。
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
           git config user.name "auto-collect[bot]"
           git config user.email "auto-collect[bot]@users.noreply.github.com"
-          git add pending material/processed.json
+          git add material/processed.json
+          if git diff --cached --quiet; then
+            echo "素材状态无变化"
+            exit 0
+          fi
+          git commit -m "chore(material): 记录本轮已处理素材 [skip ci]"
+          if ! git push origin HEAD:main; then
+            echo "推送竞争失败（main 有新提交），rebase 后重试"
+            git fetch origin main
+            git rebase origin/main
+            git push origin HEAD:main
+          fi
+
+      - name: 提交候选并开 PR（若有新题）
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          git add pending
           if git diff --cached --quiet; then
             echo "无新候选，跳过 PR"
             exit 0
