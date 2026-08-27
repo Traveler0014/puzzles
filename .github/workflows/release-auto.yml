@@ -8,6 +8,7 @@ on:
   push:
     branches: [main]
     paths: ['prompts/**', 'categories.yaml']
+  workflow_dispatch: # 手动补发用（默认不 bump，仅当有实质变化时才发）
 
 permissions:
   contents: write
@@ -72,4 +73,14 @@ jobs:
           git push origin main
           git tag "v${{ steps.bump.outputs.version }}"
           git push origin "v${{ steps.bump.outputs.version }}"
-          # tag 推送触发 release.yml：校验 + 发布 GitHub Release（附 dist/bundle.json）
+
+      # 注意：GITHUB_TOKEN 推的 tag 不会触发其它 workflow（GitHub 防递归），
+      # 所以必须在本 workflow 里直接发布 Release，不能指望 release.yml。
+      - name: 发布 GitHub Release
+        if: steps.check.outputs.changed == 'true'
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: v${{ steps.bump.outputs.version }}
+          name: v${{ steps.bump.outputs.version }}
+          files: dist/bundle.json
+          generate_release_notes: true
