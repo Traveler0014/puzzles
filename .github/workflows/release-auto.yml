@@ -63,6 +63,11 @@ jobs:
             fs.writeFileSync('bundle.yaml', yaml.dump(b));
           " "$NEXT"
 
+      # bump 后重建 dist，确保发布的 bundle.json 带新版本号
+      # （前面的 validate 在 bump 前构建，产物里的 version 还是旧号）
+      - run: node scripts/build.mjs
+        if: steps.check.outputs.changed == 'true'
+
       - name: 提交版本号并打 tag
         if: steps.check.outputs.changed == 'true'
         run: |
