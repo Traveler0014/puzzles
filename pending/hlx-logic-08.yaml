@@ -1,0 +1,11 @@
+id: hlx-logic-08
+category: logic
+difficulty: 3
+source: "Raymond Smullyan《What Is the Name of This Book?》骑士与骗子谜题族"
+sourceUrl: "https://en.wikipedia.org/wiki/Knights_and_knaves"
+author: "auto"
+status: draft
+question: |
+  把骑士/骗子问题符号化：A 说出一句话 S，则所有回答都受同一条规则约束——S 的真假必须等于‘A 是骑士’的真假。请用这个规则判断：什么样的一句话能同时锁定 A、B 两人的身份？试构造一句，并解释为什么在这类题里骗子也会被迫传递真信息。别以为任何绕弯的话都行——比如 A 说“B 是骗子”就永远无法同时确定两人。
+answer: |
+  设 a=“A 是骑士”，b=“B 是骑士”。A 说 S 给出的约束是：S 的真假等于 a。把 a,b 的真假四种组合逐一代入，能且只能留下一种组合的 S 就够用。例如构造 S=“A 是骗子且 B 是骑士”，写成逻辑式 (¬a∧b)。代四种：a=1 时 S 为假，不满足 S=a；a=0,b=1 时 S 为真，不满足 S=0；a=0,b=0 时 S 为假，满足；a=1,b=1 时 S 为假，不满足。唯一满足的是 A、B 都是骗子。通用技巧：每句话都是一个布尔函数，令它等于 A 的骑士性，再逐行检查；骗子并非‘不说真话’，而是他的真假规则恰好也是同一条等式，所以信息一定藏在命题本身里。

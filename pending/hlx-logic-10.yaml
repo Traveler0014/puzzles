@@ -1,0 +1,11 @@
+id: hlx-logic-10
+category: logic
+difficulty: 2
+source: "https://puzzling.stackexchange.com/questions/15529/is-this-tetris-puzzle-solvable"
+sourceUrl: "https://puzzling.stackexchange.com/questions/15529/is-this-tetris-puzzle-solvable"
+author: "SE:James Webster"
+status: draft
+question: |
+  七种四格骨牌（俄罗斯方块中的 7 种形状）每种各有 7 个，共 49 个。能否用它们无重叠地铺满一个 7×28 的矩形？注意：面积恰好相等（49×4=196=7×28），但面积相等只是必要条件，不是充分条件。直觉上好像差一点就能拼成，请别急着下结论——答案到底可不可能？
+answer: |
+  不可能。把 7×28 的矩形按国际象棋棋盘那样黑白相间染色，整个棋盘共有 98 个黑格和 98 个白格，黑白数量相等。除 T 形外的六种四格骨牌，无论怎么摆放，都恰好覆盖 2 个黑格和 2 个白格；而 T 形骨牌无论怎么旋转，总会覆盖 3 个一种颜色和 1 个另一种颜色。7 个 T 形骨牌合计会造成至少 7 个格子的黑白差（奇数），其他骨牌的黑白差都是 0，所以整体覆盖的黑格数与白格数不可能相等。既然棋盘本身黑白格数量相等，矛盾，因此不可能铺满。这就是经典的“棋盘染色不变量”证明：看似只差一点，实则被奇偶性彻底排除。

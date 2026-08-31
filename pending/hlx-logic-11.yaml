@@ -1,0 +1,11 @@
+id: hlx-logic-11
+category: logic
+difficulty: 2
+source: "https://puzzling.stackexchange.com/questions/32908"
+sourceUrl: "https://puzzling.stackexchange.com/questions/32908/lock-your-computer-when-you-walk-away"
+author: "SE:Khale_Kitha"
+status: draft
+question: |
+  同事在你电脑上留下一个恶作剧程序。它每次会随机给你一个方向（上、下、左、右、前、后、斜向），但有个奇怪的规则：永远不给你“上”。程序里还藏着一行字“让你下”，但被注释掉了，不会生效；另外程序有一个“绕圈”的动作，但永远轮不到它执行。它到底在对你做什么？
+answer: |
+  这个程序其实是在“Rickroll”你——它把 Rick Astley 的《Never Gonna Give You Up》歌词编成了代码行为。逐句对照：1. “Never gonna give you up”：程序永远不会把“Up（上）”这个方向给你，因为循环规则是只要随机到 Up 就重新抽，所以它永远不给你 Up；2. “Never gonna let you down”：代码里有一行 `//let u = Directions.Down`，本意是让“下”生效，但它是注释，被忽略，所以永远不会“let you down”（让你向下，也双关“让你失望”）；3. “Never gonna run around”：程序里有个 `Around()`（绕圈）方法，但 `return` 语句在调用它之前就执行了，所以永远轮不到绕圈；4. “and desert you”：`Around()` 里本会把值设为 null（空/抛弃），但既然它永远不会被调用，也就永远不会“抛弃你”。四句歌词拼在一起，就是那首著名的洗脑神曲。你被同事用代码玩了一次经典的 “Rickroll” 恶作剧。
