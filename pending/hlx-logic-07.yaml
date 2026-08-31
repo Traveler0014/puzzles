@@ -1,0 +1,11 @@
+id: hlx-logic-07
+category: logic
+difficulty: 2
+source: "Raymond Smullyan《What Is the Name of This Book?》骑士与骗子谜题族"
+sourceUrl: "https://en.wikipedia.org/wiki/Knights_and_knaves"
+author: "auto"
+status: draft
+question: |
+  仍在只有骑士和骗子的岛上。A 这次说：『我们当中至少有一个是骗子。』A 和 B 各是什么？这句话与上一题只差两个字，结论却相反；如果直觉以为“A 又该是骗子”，会被证否。
+answer: |
+  若 A 是骗子，他说的话必须为假；‘至少有一个是骗子’为假意味着两人都不是骗子，尤其 A 自己不是骗子，这与“A 是骗子”矛盾。所以 A 不可能是骗子，只能是骑士。A 是真话者，他的话为真：两人中至少有一个是骗子。既然 A 是骑士不是骗子，那这个骗子只能是 B。故答案是 A 骑士、B 骗子，与原型题 A 骗子、B 骑士恰好互换。

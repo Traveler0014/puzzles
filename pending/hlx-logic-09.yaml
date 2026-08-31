@@ -1,0 +1,21 @@
+id: hlx-logic-09
+category: logic
+difficulty: 3
+source: "https://puzzling.stackexchange.com/questions/20233/a-short-brutal-riddle"
+sourceUrl: "https://puzzling.stackexchange.com/questions/20233/a-short-brutal-riddle"
+author: "SE:Roland"
+status: draft
+question: |
+  独自待着时，我是一个五个字母的单词。我诚实又公平，我承认。把我重新排列，火车就用不上我；再排列一次，我就变成一个开阔、温暖又明亮的地方。猜猜我是谁？
+answer: |
+  答案：LIAR（说谎者）。
+  
+  关键是：谜面的每一句话都是谎话。这正符合“LIAR”的名字。
+  
+  逐句拆开看：
+  1. “独自待着时，我是五个字母的单词”——假的，LIAR 只有四个字母。
+  2. “我诚实又公平，我承认”——说谎者恰恰既不诚实也不公平。
+  3. “把我重新排列，火车就用不上我”——LIAR 重排成 RAIL（铁轨），而铁轨对火车至关重要，正好相反。
+  4. “再排列一次，我变成开阔、温暖明亮的地方”——LIAR 再重排成 LAIR（巢穴、兽穴），通常是隐秘、黑暗、狭窄之处，又和描述全反。
+  
+  整首诗利用了我们对“线索应当为真”的信任惯性。只有意识到每行都在撒谎，才能从否定中推出真正的答案。看似每句都指向某种正面描述，实际上答案正是那个一直在骗你的人。

@@ -1,0 +1,11 @@
+id: hlx-logic-06
+category: logic
+difficulty: 1
+source: "Raymond Smullyan《What Is the Name of This Book?》骑士与骗子谜题族"
+sourceUrl: "https://en.wikipedia.org/wiki/Knights_and_knaves"
+author: "auto"
+status: draft
+question: |
+  一座岛只有骑士（只说真话）和骗子（只说假话）。你遇到 A、B，A 说：『我们两个都是骗子。』A 和 B 各是什么？别急着说 A 是骗子就完了——B 的身份也由这句话决定。
+answer: |
+  若 A 是骑士，他说‘两个都是骗子’为真，则他自己是骗子，矛盾，所以 A 只能是骗子。骗子说假话，因此‘两个都是骗子’为假。既然 A 已是骗子，要使整句为假，B 就不能也是骗子（否则整句为真），所以 B 是骑士。常见错答是只推出 A 是骗子，忘了整句的真假还约束着 B；实际上第一句已经锁定 A，剩下 B 只有一种可能。
