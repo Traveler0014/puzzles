@@ -1,0 +1,11 @@
+id: hlx-physics-07
+category: physics
+difficulty: 2
+source: "全息原理（'t Hooft 1993、Susskind 1995）与 AdS/CFT 对偶（Maldacena 1997）；Bekenstein-Hawking 黑洞熵；Quanta Magazine《Gravity Seems Holographic. What Does That Mean for Reality?》"
+sourceUrl: "https://www.quantamagazine.org/gravity-seems-holographic-what-does-that-mean-for-reality-20260925/"
+author: "auto"
+status: draft
+question: |
+  一张全息照片被撕成两半，每一半仍然能显示完整的立体图像——信息被摊在了二维平面上。那么换个角度想：你现在躺着的这间屋子，里面所有东西的全部信息，有没有可能其实都「写」在墙壁这个二维表面上？直觉当然说不可能：东西装在整间屋子里，信息量应该随房间的体积增长，光靠墙皮那点面积怎么装得下？可是黑洞给出了一个很别扭的提示。请你想一想：黑洞的熵（可以粗略理解为它藏了多少信息）究竟是正比于它的体积，还是正比于它视界的表面积？如果答案是后者，那对「空间到底有几维」意味着什么？
+answer: |
+  答案是表面积，而且这非常反直觉。黑洞熵满足 S = A/4G（Bekenstein-Hawking），只跟视界面积成正比，与内部体积无关——这与「信息量随体积增长」的日常经验直接冲突。既然一个三维区域能容纳的信息上限由它的二维边界面积决定，那么区域内部的所有自由度很可能是多余的、可以被边界上的理论完全重新描述，这就是全息原理（'t Hooft 1993、Susskind 1995）。所谓「引力坍缩了空间维度」，指的正是：描写某个区域引力的理论，所需要用到的维度比那片时空本身少一维。1997 年 Maldacena 的 AdS/CFT 对偶给出了具体实现：反德西特空间里的引力理论，等价于它边界上一套没有引力的量子场论。要提醒的是，这仍是最有力的理论猜想而非已证实的现实图景；它之所以重要，是因为引力与量子力学至今无法相容，而全息给出了一个让维度「消失」的出路。
