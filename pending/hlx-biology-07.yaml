@@ -1,0 +1,11 @@
+id: hlx-biology-07
+category: biology
+difficulty: 2
+source: "C.H. Waddington 的表观遗传景观（1950年代），Quanta Magazine《How Does Life Unfold? A Landscape Metaphor Comes Into Its Own.》"
+sourceUrl: "https://www.quantamagazine.org/how-does-life-unfold-a-landscape-metaphor-comes-into-its-own-20261009/"
+author: "auto"
+status: draft
+question: |
+  你身上每个细胞几乎都有同一套 DNA，但有的成了皮肤，有的成了神经。最直觉的解释是“它们 DNA 不同”——可这不对。那它们怎么分道扬镳？想象一个球从起伏山坡滚下，山坡有许多分叉山谷，球最后停在不同谷底。这个比喻里，球为什么不会全走同一条路？如果起点几乎一样，又是什么让命运分开？闭上眼，想想那幅景观。
+answer: |
+  这是 Waddington 在 1950 年代提出的“表观遗传景观”。把发育中的细胞想成小球，从山坡滚下。山坡的起伏由基因调控网络决定，山谷代表稳定的细胞类型：皮肤、神经、肌肉等。所有细胞 DNA 几乎相同，但基因被“读取”的方式不同。球最终进哪个谷，取决于景观形状、初始位置，以及滚动中的微小随机扰动。一旦落入某个谷，山脊把它和别的谷隔开，细胞命运就稳定下来。所以不是 DNA 不同，而是同一套 DNA 被不同方式表达。现代实验确认了这个图景，也发现它更复杂：景观会随环境、信号、时间改变，噪声和细胞历史都影响命运。因此相同起点也可能分道扬镳。
