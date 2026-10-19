@@ -1,0 +1,11 @@
+id: hlx-thermal-03
+category: thermal
+difficulty: 2
+source: "ETH Zurich/Vrije Universiteit Brussel 发表于 Nature Communications 的冰川模拟研究（phys.org 报道：Factoring daily weather extremes into glacier models reveals greater ice loss and faster sea-level rise）"
+sourceUrl: "https://phys.org/news/2026-10-factoring-daily-weather-extremes-glacier.html"
+author: "auto"
+status: draft
+question: |
+  同一个夏天，两个冰川地区的平均气温完全相同：A 地每天温度平稳，B 地白天酷热、夜里偏冷，天气忽冷忽热。直觉会说“平均一样，融化量也应该一样”；也有人会想“夜里冷，正好把白天多融的补回来”。真是这样吗？请想一想：冰川融化与温度是简单的线性关系吗？白天极端高温那几天，为什么很难被夜里的低温“抵消”？
+answer: |
+  不是线性关系，所以平均气温相同，融化量可以不同。冰川融化主要取决于净辐射和感热、潜热等能量输入。温度越高，融化速率往往增长得比“温度升高一度、多融固定一层”更快；同样一段时间的总热量，如果集中在几天高温里释放，造成的融化会多于温度平稳分布。夜间的低温再冻结只能恢复一部分：白天融水可能流走或下渗，冻结释放的潜热也无法把已经流失的冰“补回来”。此外，高温还会让雪冰表面变暗、反照率下降，吸收更多太阳辐射，形成正反馈。研究把日尺度天气变率纳入冰川模型后，发现到本世纪末全球冰川冰损失比此前估计更大，海平面上升也更快。关键不是只有平均温度，而是温度序列经过非线性融化关系后的加权结果。
