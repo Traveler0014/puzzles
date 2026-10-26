@@ -1,0 +1,11 @@
+id: hlx-biology-07
+category: biology
+difficulty: 2
+source: "Quanta Magazine《Malaria Parasite Caught in the Act of Breaking and Entering》（2026-10-23）＋细胞生物学中公认的疟原虫「移动接合（moving junction）」入侵机制"
+sourceUrl: "https://www.quantamagazine.org/malaria-parasite-caught-in-the-act-of-breaking-and-entering-20261023/"
+author: "auto"
+status: draft
+question: |
+  红细胞像一只没有骨架、灌满水的气球。疟原虫要钻进去住下——直觉上它得像针一样戳个洞挤进去；可洞一开，红细胞就会漏、会瘪、会破，而且戳出来的洞不可能自己长回去。事实上它钻进去后，红细胞完好无损，身后那扇「门」还彻底消失了。它究竟是怎么进去的？（提示：它没有打洞，也没有把膜撑破。）
+answer: |
+  疟原虫不戳洞，而是让红细胞把它「吞」进去。接触瞬间，虫体前端伸出蛋白，抓住红细胞膜上的受体，在接触处箍出一圈极紧密的环；那不是孔，是一条密封的橡皮筋。虫体随后向后挤，这圈环始终卡在它最粗的位置，像拉链一样一路往后收，任何时刻膜上都没有一个能让内外相通的开口，所以红细胞既不漏也不瘪。与此同时，虫体钻进时会把一圈宿主细胞膜一起带进去，最后在自己身外包起一层膜泡（parasitophorous vacuole），等于住进一只用宿主膜缝成的睡袋。入口在身后被这层膜封死，临时搭起的分子门也随之拆解消失——「门」就这样不见了。真正反直觉的地方是：入侵不是「穿墙」，而是一次由寄生虫主导、由宿主膜配合的「吞入」，墙体自始至终没有破过洞。
