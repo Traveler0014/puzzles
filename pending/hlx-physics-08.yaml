@@ -1,0 +1,11 @@
+id: hlx-physics-08
+category: physics
+difficulty: 2
+source: "Quanta Magazine《How Spiders Spin 'Silk Dope' Into Nature's Toughest Material》(2026-10-28)；蜘蛛丝液晶纺丝与β折叠纳米晶结构（Vollrath、Kaplan 等公认结论）"
+sourceUrl: "https://www.quantamagazine.org/how-spiders-spin-silk-dope-into-natures-toughest-material-20261028/"
+author: "auto"
+status: draft
+question: |
+  蜘蛛丝按重量算比钢还结实，能拉长一大截才断，可它的原料只是蜘蛛肚子里一锅「乱糟糟」的蛋白质溶液（丝浆）：没有固定形状，也没经过任何化学「凝固」反应。直觉会说：无序就是松散脆弱，要变强就得靠化学交联把它「焊死」，或者靠水分蒸发变干变硬。这两条都不对。那蜘蛛到底靠什么，把一锅无序的液体抽成一根又硬又韧的丝？
+answer: |
+  丝蛋白链上一部分是重复短序列，一部分是长而无序的段落。腺体里的丝浆是高浓度蛋白的液晶态：pH 偏高，加上某些离子（如 Na⁺、Cl⁻），它保持可溶，不会聚成块，所以能长期储存而不凝固。当丝浆被挤进导管时，几件事同时发生：pH 下降，离子成分被交换（钾、磷酸根），水分被抽走；再加上管壁的剪切和出口处的拉伸，把长链梳顺、取向。重复段靠氢键堆成 β 折叠纳米晶（硬区），无序段留在晶区之间做柔软基质。全程没有化学交联，靠的是物理自组装。反直觉的第二层：那些「乱」的无序区不是弱点。受力时它们先展开，氢键逐个断开，把能量耗散掉，晶区才不至于一断就裂。硬来自晶体，韧来自无序。
