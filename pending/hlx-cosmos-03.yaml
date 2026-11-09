@@ -1,0 +1,11 @@
+id: hlx-cosmos-03
+category: cosmos
+difficulty: 2
+source: "东京大学研究，发表于 Radiocarbon；phys.org 报道《Radiocarbon analysis uncovers possible traces of hidden earthquakes off Japan's coast》"
+sourceUrl: "https://phys.org/news/2026-11-radiocarbon-analysis-uncovers-hidden-earthquakes.html"
+author: "auto"
+status: draft
+question: |
+  海底沉积物被搅乱，直觉上就像“地震来过”。可风暴、洪水也能把泥沙搅乱，为什么科学家还能靠碳-14 在熊野海海底岩芯里找出隐藏地震？换句话说：碳-14 测的并不是“乱”，那它测出的什么信号，才让一次古地震露馅？
+answer: |
+  关键不是“层乱”，而是层里有机质的“年龄指纹”。碳-14 能估算沉积物中有机碳最后一次从大气/海水固定后埋藏的时间。强震会触发海底滑坡或浊流，把坡上较老的沉积物搬进海盆，形成一次事件层。这样的事件层里，有机碳往往比同层位的正常沉积物“老”，出现异常老碳或年龄倒置。科学家在岩芯中寻找这种异常层，再结合层位、粒度和区域对比，排除风暴、洪水等普通扰动，就能把隐藏的古地震“认”出来；多个事件层还能帮助重建复发间隔。报道中东京大学团队正是用新型碳-14 分析，在熊野海岩芯里发现多处先前未知的南开海槽地震痕迹。
