@@ -1,0 +1,11 @@
+id: hlx-biology-07
+category: biology
+difficulty: 2
+source: "Quanta Magazine《How a Metabolic Spark Could Have Jump-Started Life》"
+sourceUrl: "https://www.quantamagazine.org/what-is-the-metabolism-first-theory-for-the-origin-of-life-20261111/"
+author: "auto"
+status: draft
+question: |
+  很多人会立刻想到：生命起源必须先有能复制自己的分子，比如RNA。但请别停在这里——如果最开始根本没有复制分子，只是一团不断消耗能量、制造和分解分子的化学反应，它凭什么能“活下去”甚至演化？换句话说，能量代谢有没有可能比遗传信息更早出现？
+answer: |
+  这正是“代谢优先”假说：生命可能先始于一组自维持的化学反应循环，而不是先有RNA或DNA。早期地球的海底热液喷口等环境提供持续能量梯度，小分子在矿物表面可能形成自催化网络——A促进B生成，B又反过来促进A生成，网络靠不断消耗能量流来维持自身。它不需要遗传密码，也能在“谁更能维持网络稳定、谁更能利用能量”的层面上被选择。遗传分子可能后来才出现，用来更稳定地存储和传递网络信息。Quanta Magazine 的这篇文章提到，制造和分解复杂分子的能量通路对所有生命都关键，这种自维持循环甚至可能是生命开端的关键。但这仍是假说，与“基因优先/RNA世界”并存，并没有定论；所以直觉答案“必须先有复制分子”并非唯一可能。
