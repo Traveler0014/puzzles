@@ -1,0 +1,11 @@
+id: hlx-physics-07
+category: physics
+difficulty: 2
+source: "Barabási & Albert, 1999, Science（无标度网络）；Quanta Magazine《Can Network Science Transform Health and Nutrition?》"
+sourceUrl: "https://www.quantamagazine.org/can-network-science-transform-health-and-nutrition-20261112/"
+author: "auto"
+status: draft
+question: |
+  互联网、细胞里的蛋白质相互作用网、你的社交圈，都是“网络”。直觉上，一个网络里连接越多、越均匀，应该越结实；但网络科学发现，很多真实网络对随机坏掉几个节点很淡定，却可能因为少数几个“枢纽”节点被移除而迅速散架。注意：这不是因为枢纽节点连接少——恰恰相反。请解释这种“既抗随机故障、又怕定向攻击”的双重性从何而来。
+answer: |
+  真实网络常呈“重尾”或“无标度”的度分布：大多数节点只有少量连接，少数枢纽节点连接极多。随机移除节点时，抽中枢纽的概率很低，网络仍能保留一个大的连通部分；而定向移除枢纽，会同时切断大量路径，使网络迅速碎片化。关键不是平均连接数，而是连接分布的异质性。均匀随机网络没有这种极端枢纽，随机故障和定向攻击的差别就小得多。所以“连接多就稳”只对平均度成立；真实网络把稳健性押在大量低度节点上，把脆弱性集中在少数枢纽上。
