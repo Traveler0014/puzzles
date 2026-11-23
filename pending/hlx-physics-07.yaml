@@ -1,0 +1,11 @@
+id: hlx-physics-07
+category: physics
+difficulty: 2
+source: "Quanta Magazine《What Makes Up the Cosmos? A 20-Year Survey Hints That Something Is Missing.》；宇宙组分比例参考 Planck 2018 等宇宙学共识（ΛCDM 模型）"
+sourceUrl: "https://www.quantamagazine.org/what-makes-up-the-cosmos-a-20-year-survey-hints-that-something-is-missing-20261116/"
+author: "auto"
+status: draft
+question: |
+  晚上看星星时，你看到的光点只占宇宙的一小部分。一次长达20年的星系巡天发现，宇宙大尺度结构的成团方式与“标准宇宙模型”（约5%普通物质、27%暗物质、68%暗能量）不太吻合。直觉会说：缺的是普通物质，找到更多暗淡星系或气体就行——可普通物质的总量早被宇宙早期的轻元素丰度和微波背景辐射卡得很死。那么，如果缺口不在普通物质，天文学家还能往哪里找？为什么“暗能量随时间变化”或“引力定律需要修改”会成为候选？
+answer: |
+  标准模型 ΛCDM 里，普通物质约5%、暗物质约27%、暗能量约68%。巡天不是直接“称”宇宙，而是测不同距离上星系成团的强弱，借此还原宇宙膨胀史和结构增长史。若结果与模型预测有偏差，首先可能是观测系统误差；排除了，才轮到新物理。直觉的“缺普通物质”通常最先被排除，因为原初核合成决定轻元素丰度，微波背景又给出很紧的约束，普通物质补不上大缺口。更自然的候选是暗能量不是常数、暗物质性质更复杂，或引力在宇宙尺度上需要修改。所以“缺了什么”不是简单找一种新粒子，而是问：我们用来描述宇宙演化的那套假设，哪一条可能不成立。
